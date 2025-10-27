@@ -7,6 +7,18 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'neon-green': '#00FF41',
+        'lime-green': '#7FFF00',
+        'gold-accent': '#FFB84D',
+        'amber': '#FFA500',
+        'pure-black': '#000000',
+        'dark-bg': '#0a0a0a',
+        'card-bg': '#1a1a1a',
+        'text-primary': '#ffffff',
+        'text-secondary': '#a0a0a0',
+        'border-subtle': '#2a2a2a',
+      },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
