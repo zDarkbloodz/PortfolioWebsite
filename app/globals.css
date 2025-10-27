@@ -1,19 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   :root {
     --font-inter: 'Inter', system-ui, sans-serif;
     --font-mono: 'Fira Code', 'Courier New', monospace;
+
+    /* Custom color palette */
+    --color-neon-green: #00FF41;
+    --color-lime-green: #7FFF00;
+    --color-gold-accent: #FFB84D;
+    --color-amber: #FFA500;
+    --color-pure-black: #000000;
+    --color-dark-bg: #0a0a0a;
+    --color-card-bg: #1a1a1a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #a0a0a0;
+    --color-border-subtle: #2a2a2a;
   }
 
   * {
-    @apply border-border-subtle;
+    border-color: var(--color-border-subtle);
   }
 
   body {
-    @apply bg-pure-black text-text-primary antialiased;
+    background-color: var(--color-pure-black);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Custom scrollbar */
@@ -22,15 +35,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-dark-bg;
+    background-color: var(--color-dark-bg);
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-neon-green/30 rounded;
+    background-color: rgba(0, 255, 65, 0.3);
+    border-radius: 0.25rem;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-neon-green/50;
+    background-color: rgba(0, 255, 65, 0.5);
   }
 }
 
@@ -41,17 +55,26 @@
   }
 
   .neon-border {
-    border: 1px solid #00FF41;
-    box-shadow: 0 0 5px #00FF41,
-                inset 0 0 5px #00FF41;
+    border: 1px solid var(--color-neon-green);
+    box-shadow: 0 0 5px var(--color-neon-green),
+                inset 0 0 5px var(--color-neon-green);
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+
+  .card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-neon-green to-lime-green bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, var(--color-neon-green), var(--color-lime-green));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 }
 
